@@ -1,50 +1,31 @@
 //task 1
-document.write('Kypshakova Aidana cs-2122' +'<br/>');
+const text = document.querySelector('p');
+text.innerHTML=text.innerText
+.split(' ')
+.map(word => word.length > 8 ? `<span style = "background-color : yellow">${word}</span>` : word)
+.join(' ');
 
-//task 2
-var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-var months = ["January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"];
-const now = new Date();
+//task2
+const link = document.createElement('a');
+link.href = 'https://www.inc.com/jeff-haden/this-new-linkedin-study-reveals-top-8-jobinterview-questions-and-how-great-job-candidates-answer-them.html'
+link.innerText = 'Link to the source';
+document.body.appendChild(link);
 
-
-document.write('Year:' + now.getFullYear() + '<br/>' +
-'Today is:' + days[now.getDay()] + '<br/>' +
-'Date:' + now.getDate() + '<br/>' +
-'Month:' + months[(now.getMonth())] + '<br/>' +
-'Current time is:' + now.toLocaleString('en-US' , { hour: 'numeric', hour12: true }) + ':' + now.getMinutes() + ':' + now.getSeconds());
 //task3
-document.write('<br/>')
-var grad=new Date(2024, 7, 20);
-var one_day=1000*60*60*24;
-document.write(Math.ceil((grad.getTime()-now.getTime())/(one_day))+
-" days left until the freedom!");
+text.innerHTML =text.innerHTML
+.split(/\.[^.\|<]/)
+.join('</p><p>')+'</p>';
 
-//task 4
-let num1;
-let num2;
+//task4
+const wordCount = text.innerText. split(' ').length;
+const wordCountElem = document.createElement('div');
+wordCountElem.innerText = `${wordCount} words`;
+document. body. insertBefore(wordCountElem, text);
 
-
-let out = document.getElementById('out');
-
-
-
-
-function multiplication() {
- num1 = document.getElementById('n1').value;
- num1 = parseInt(num1)
- num2 = document.getElementById('n2').value;
- num2 = parseInt(num2)
-
- out.innerHTML = num1 * num2;
-}
-
-
-function division() {
- num1 = document.getElementById('n1').value;
- num1 = parseInt(num1)
- num2 = document.getElementById('n2').value;
- num2 = parseInt(num2)
-
- out.innerHTML = num1 / num2;
-}
+//task5
+Array.from(document.querySelectorAll('p'))
+.forEach(p => {
+  p.innerHTML = p.innerHTML
+  .replace(/\?/g, '🤔')
+  .replace(/\!/g, '😲');
+} )
